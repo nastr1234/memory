@@ -30,6 +30,14 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t nastr1234/memory .
+push-memory:
+    runs-on: self-hosted
+    needs: build-memory
+    steps:
+      - name: Push Docker image
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u nastr1234 --password-stdin
+          docker push nastr1234/memory
 
 
 
