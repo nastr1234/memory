@@ -38,16 +38,28 @@ jobs:
         run: |
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u nastr1234 --password-stdin
           docker push nastr1234/memory
- deploy-memory:
+
+deploy-memory:
     runs-on: self-hosted
     needs: push-memory
     steps:
-      - name: SSH into server and deploy
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: SSH into server and deploy using Docker Compose
         run: |
           ssh -i ~/.ssh/id_25519 -o StrictHostKeyChecking=no naela@localhost << 'EOF'
-            docker pull nastr1234/memory
-            docker run -d -p 80:80 nastr1234/memory
+            docker-compose -f /path/to/your/docker-compose.yml pull
+            docker-compose -f /path/to/your/docker-compose.yml up -d
           EOF
+
+
+
+
+
+
+
+
 
 
 
