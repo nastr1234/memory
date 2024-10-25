@@ -51,8 +51,8 @@ jobs:
       - name: SSH into server and deploy using Docker Compose
         run: |
           ssh -i ~/.ssh/id_25519 -o StrictHostKeyChecking=no naela@localhost << 'EOF'
-            docker-compose -f /path/to/your/docker-compose.yml pull
-            docker-compose -f /path/to/your/docker-compose.yml up -d
+            docker-compose -f /var/www/memory/docker-compose.yml pull
+            docker-compose -f /var/www/memory/docker-compose.yml up -d
           EOF
   
 
