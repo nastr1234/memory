@@ -17,7 +17,7 @@ jobs:
           for file in $(find . -name "*.jpg"); do
             if ! file "$file" | grep -q 'JPEG'; then
               echo "Corrupted file: $file"
-              cp var/www/html/data/1.jpg "$file" #Remplacez par une image au choix
+              cp var/www/memory/html/data/1.jpg "$file" #Remplacez par une image au choix
             fi
           done
 
