@@ -17,8 +17,8 @@ jobs:
           for file in $(find . -name "*.jpg"); do
             if ! file "$file" | grep -q 'JPEG'; then
               echo "Corrupted file: $file"
-              cp ./html/data/1.jpg "$file" # image au hasard jsp quoi  mettre
-              fi
+              cp var/www/html/data/1.jpg "$file" # Remplacez par une image au choix
+            fi
           done
 
   build-memory:
@@ -54,6 +54,62 @@ jobs:
             docker-compose -f /path/to/your/docker-compose.yml pull
             docker-compose -f /path/to/your/docker-compose.yml up -d
           EOF
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
