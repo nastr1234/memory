@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  memory-app:
+    image: nastr1234/memory
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/var/concentration/html 
+    restart: always
+
