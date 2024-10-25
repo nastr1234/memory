@@ -16,11 +16,12 @@ jobs:
         run: |
           for file in $(find . -name "*.jpg"); do
             if ! file "$file" | grep -q 'JPEG'; then
-              echo "Corrupu file: $file"
-              cp var/www/html/data/1.jpg "$file" #image au hasard
-            fi
+              echo "Corrupted file: $file"
+              cp ./html/data/1.jpg "$file" # image au hasard jsp quoi mettre
+              fi
           done
- build-memory:
+
+  build-memory:
     runs-on: self-hosted
     needs: test-memory
     steps:
@@ -30,7 +31,8 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t nastr1234/memory .
- push-memory:
+
+  push-memory:
     runs-on: self-hosted
     needs: build-memory
     steps:
@@ -39,7 +41,7 @@ jobs:
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u nastr1234 --password-stdin
           docker push nastr1234/memory
 
-deploy-memory:
+  deploy-memory:
     runs-on: self-hosted
     needs: push-memory
     steps:
@@ -52,6 +54,60 @@ deploy-memory:
             docker-compose -f /path/to/your/docker-compose.yml pull
             docker-compose -f /path/to/your/docker-compose.yml up -d
           EOF
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
